@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Shakahawat Hossen Abrar's Profile Page --><title>Shakahawat Hossen Abrar | Profile</title>
+    
+    <meta name="description" content="Shakahawat Hossen Abrar (Abrar)'s official page.">
+    <meta name="author" content="Shakahawat Hossen Abrar">
+
+    <!-- Performance: Preconnect to external domains --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <!-- Fonts and Icons --><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    
+    
+    <style>
+        /* --- All CSS from style.css is now inline --- */
+        :root {
+            --primary-green: #27ae60;
+            --primary-green-light: #2ecc71;
+            
+            --light-bg: #f4f9f4;
+            --card-color: #ffffff;
+            --text-color: #1a1a1a;
+            --text-muted: #555;
+            --border-color: rgba(0, 0, 0, 0.05);
+            --header-bg: rgba(244, 249, 244, 0.8);
+
+            --font-sans: 'Poppins', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-mono: 'Fira Code', monospace;
+
+            --header-height: 70px;
+            --menu-height: 110px;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-color: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-muted: #bbb;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --header-bg: rgba(18, 18, 18, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+        }
+        body.menu-open {
+            overflow-y: hidden;
+        }
+        
+        body.preloader-active {
+            overflow: hidden;
+        }
+
+        a, button, .skill-item {
+            cursor: pointer;
+        }
+
+        audio { display: none; }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+            padding: 0 5%;
+            z-index: 1000;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: background-color 0.5s ease, border-color 0.5s ease;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .switch-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--text-muted);
+            transition: .4s;
+            border-radius: 26px;
+        }
+        .switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        .switch-slider i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+            transition: 0.4s;
+        }
+        .sun-icon {
+            left: 5px;
+            color: #f39c12;
+            opacity: 1;
+        }
+        .moon-icon {
+            right: 5px;
+            color: #3498db;
+            opacity: 0;
+        }
+
+        input:checked + .switch-slider {
+            background-color: var(--primary-green);
+        }
+        input:checked + .switch-slider:before {
+            transform: translateX(24px);
+        }
+        input:checked + .switch-slider .sun-icon {
+            opacity: 0;
+        }
+        input:checked + .switch-slider .moon-icon {
+            opacity: 1;
+        }
+
+        .hamburger-btn {
+            width: 30px;
+            height: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1002;
+            position: relative;
+        }
+        .hamburger-btn .bar {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        .hamburger-btn .bar:nth-child(1) {
+            transform-origin: top left;
+        }
+        .hamburger-btn .bar:nth-child(2) {
+            transform-origin: bottom left;
+            margin-top: 10px;
+        }
+        body.menu-open .hamburger-btn .bar:nth-child(1) {
+            transform: rotate(45deg) translate(2px, -3px);
+        }
+        body.menu-open .hamburger-btn .bar:nth-child(2) {
+            transform: rotate(-45deg) translate(2px, 3px);
+        }
+
+        .top-dropdown-menu {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 999;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem 1rem;
+            height: var(--menu-height);
+
+            transform: translateY(calc(-100% - var(--header-height)));
+            visibility: hidden;
+            transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1), 
+                        visibility 0.5s,
+                        background-color 0.5s ease, border-color 0.5s ease;
+        }
+        body.menu-open .top-dropdown-menu {
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 8px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--primary-green);
+            background-color: var(--border-color);
+        }
+
+        .music-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-muted);
+            cursor: pointer;
+            z-index: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .music-toggle-btn.playing {
+            color: var(--primary-green);
+            box-shadow: 0 0 15px var(--primary-green);
+        }
+        .music-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--primary-green);
+            cursor: pointer;
+            z-index: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        .back-to-top-btn.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--primary-green);
+        }
+
+        main.container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: var(--header-height) 1.5rem 0 1.5rem;
+            transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+        body.menu-open main.container {
+            transform: translateY(var(--menu-height));
+        }
+
+        section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: border-color 0.5s ease;
+        }
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin: 0 auto 1.5rem;
+            max-width: 700px;
+            transition: color 0.5s ease;
+        }
+        blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-muted);
+            border-left: 4px solid var(--primary-green);
+            padding-left: 1.5rem;
+            margin: 2rem auto 0;
+            max-width: 650px;
+            text-align: left;
+            transition: color 0.5s ease, border-color 0.5s ease;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 1rem;
+            border-bottom: none;
+            overflow: hidden;
+        }
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+            background-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%), url('https://raw.githubusercontent.com/jubairbro/Faw/refs/heads/main/photos/IMG_20250702_175317.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        body.dark-mode .hero-bg-image {
+            background-image: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(18,18,18,0) 100%), url('https://raw.githubusercontent.com/jubairbro/Faw/refs/heads/main/photos/IMG_20250702_175317.jpg');
+        }
+        .hero-content {
+            margin-top: 15vh;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-green);
+            object-fit: cover;
+            object-position: center 30%; /* Final fix for head position */
+            box-shadow: 0 0 30px rgba(39, 174, 96, 0.4);
+            margin-bottom: 1.5rem;
+            loading: lazy;
+        }
+        
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 10vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .hero-title span { color: var(--primary-green); }
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+        }
+
+        .section-flat {
+            text-align: left;
+        }
+        .section-flat h2 {
+            text-align: left;
+        }
+        #links.section-flat h2 {
+            text-align: center; /* Links section title centered */
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .skill-item {
+            background-color: var(--card-color);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            background-color: var(--primary-green);
+            color: #fff;
+            border-color: var(--primary-green);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.2);
+        }
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .terminal-section {
+            background-color: #1E1E1E;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .terminal-header { 
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-start;
+            padding: 12px 15px; 
+            gap: 8px; 
+            background-color: #333; 
+        }
+
+        .terminal-dots { display: flex; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background-color: #FF5F56; }
+        .dot.yellow { background-color: #FFBD2E; }
+        .dot.green { background-color: #27C93F; }
+        .terminal-title { color: #bbb; font-family: var(--font-mono); font-size: 0.9rem; margin-left: 15px; }
+        .terminal-body { 
+            padding: 0;
+            color: #e0e0e0; 
+            overflow-x: auto; 
+        }
+        .terminal-body pre { 
+            margin: 0; 
+            font-family: var(--font-mono); 
+            font-size: 0.95rem; 
+            padding: 1.5rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .link-card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem auto 0;
+            max-width: 700px;
+        }
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background-color: var(--card-color);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        .link-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--primary-green);
+            box-shadow: 0 5px 20px rgba(39, 174, 96, 0.15);
+        }
+        .link-card i {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-top: 0;
+        }
+        .link-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color);
+            transition: color 0.5s ease;
+        }
+        .link-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0.25rem 0 0 0;
+        }
+
+        .gallery-section {
+            padding-bottom: 6rem;
+            border-bottom: 1px solid var(--border-color);
+            transition: border-color 0.5s ease;
+            text-align: center;
+        }
+        .gallery-title { text-align: center; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .gallery-item {
+            background-color: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.2);
+            border-color: var(--primary-green);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: top; /* Changed from center to top */
+            display: block;
+        }
+
+        .contact-section { text-align: center; }
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .social-icon {
+            font-size: 1.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icon:hover {
+            color: var(--primary-green);
+            transform: scale(1.2);
+        }
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 2rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 900px) {
+            .container { padding: var(--header-height) 1rem 0 1rem; }
+            h2 { font-size: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                margin-top: 10vh;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .skill-item { padding: 1rem; }
+            .top-dropdown-menu {
+                grid-template-columns: 1fr 1fr;
+                height: auto;
+                padding: 1rem 5%;
+                --menu-height: 170px;
+            }
+            .music-toggle-btn { left: 10px; bottom: 10px; }
+            .back-to-top-btn { right: 10px; bottom: 10px; }
+        }
+        #bio.terminal-section {
+            padding-bottom: 3rem !important;
+        }
+
+        #links.section-flat {
+            padding-top: 3rem !important
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Music --><audio id="bgm" loop>
+        <source src="https://github.com/jubairbro/Faw/raw/refs/heads/main/audio.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Header --><header class="main-header">
+        <a href="#home" class="header-logo">Abrar</a>
+        <div class="header-controls">
+            
+            <label class="theme-switch" for="theme-toggle-checkbox" aria-label="Toggle Theme">
+                <input type="checkbox" id="theme-toggle-checkbox">
+                <span class="switch-slider">
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </span>
+            </label>
+
+            <button class="hamburger-btn" id="menu-toggle" aria-label="Open menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Navigation Menu --><nav class="top-dropdown-menu" id="top-dropdown-menu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#who-i-am" class="nav-link">Who I Am?</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#links" class="nav-link">Links</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#goals" class="nav-link">Goals</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Music Toggle Button --><button class="music-toggle-btn" id="music-toggle" aria-label="Toggle Music">
+        <i class="fas fa-music" id="music-icon"></i>
+    </button>
+    
+    <!-- Back to Top Button --><a href="#home" class="back-to-top-btn" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Main Content --><main class="container">
+
+        <!-- Hero Section --><section id="home" class="hero-section">
+            <div class="hero-bg-image"></div>
+            <div class="hero-content">
+                <img src="https://i.ibb.co.com/35PSfPCb/IMG-20250127-WA0010-EDIT.jpg" alt="Shakahawat Hossen Abrar" class="profile-img gsap-reveal-up">
+                
+                <h1 class="hero-title gsap-reveal-up" data-delay="0.2">
+                    Shakahawat <span>Hossen</span>
+                </h1>
+                <p class="hero-tagline gsap-reveal-up" data-delay="0.4">
+                    Student | Photographer | Cybersecurity Enthusiast
+                </p>
+            </div>
+        </section>
+
+        <!-- Who I Am Section --><section id="who-i-am" class="section-flat">
+            <h2 class="gsap-reveal-left">Who I Am?</h2>
+            <p class="gsap-reveal-right">
+                I am a student and tech enthusiast from Bangladesh. I love photography and hacking. My core belief is in the power of sharing knowledge. Below are some of the tools and technologies I work with.
+            </p>
+            <div class="skills-grid">
+                <div class="skill-item gsap-reveal-up"><i class="fas fa-camera"></i> Photo<br>graphy</div>
+                <div class="skill-item gsap-reveal-up"><i class="fas fa-user-secret"></i> Cyber<br>security</div>
+                <div class="skill-item gsap-reveal-up"><i class="devicon-python-plain"></i> Python</div>
+                <div class="skill-item gsap-reveal-up"><i class="devicon-javascript-plain"></i> JavaScript</div>
+                <div class="skill-item gsap-reveal-up"><i class="devicon-ubuntu-plain"></i> Ubuntu</div>
+                <div class="skill-item gsap-reveal-up"><i class="devicon-windows8-original"></i> Windows</div>
+                <div class="skill-item gsap-reveal-up"><i class="devicon-vscode-plain"></i> VS Code</div>
+                <div class="skill-item gsap-reveal-up"><i class="devicon-android-plain"></i> Android</div>
+            </div>
+        </section>
+
+        <!-- About Me Section --><section id="about" class="section-flat">
+            <h2 class="gsap-reveal-left">About Me</h2>
+            <p class="gsap-reveal-right">
+                My name is Shakahawat Hossen Abrar. Everyone calls me Abrar, but one special person calls me Yean. I am deeply passionate about continuous learning and believe that knowledge only becomes truly valuable when it is shared. This space is a reflection of my journey, where I collect my thoughts, document my explorations, and share them.
+            </p>
+        </section>
+
+        <!-- Bio (JSON) Section --><section id="bio" class="terminal-section gsap-reveal-up">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                </div>
+                <span class="terminal-title">abrar-data.json</span>
+            </div>
+            <div class="terminal-body">
+                <pre><code id="json-data"></code></pre>
+            </div>
+        </section>
+
+        <!-- Links Section --><section id="links" class="section-flat">
+            <h2 class="gsap-reveal-up">Find Me Online</h2>
+            <div class="link-card-grid">
+                <a href="https://www.facebook.com/shakhawat.abrar" class="link-card gsap-reveal-left" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook"></i>
+                    <div>
+                        <h3>Facebook</h3>
+                        <p>shakhawat.abrar</p>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/shakhawat.abrar" class="link-card gsap-reveal-right" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                    <div>
+                        <h3>Instagram</h3>
+                        <p>@shakhawat.abrar</p>
+                    </div>
+                </a>
+                <a href="https://www.threads.com/@shakhawat.abrar" class="link-card gsap-reveal-left" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-threads"></i>
+                    <div>
+                        <h3>Threads</h3>
+                        <p>@shakhawat.abrar</p>
+                    </div>
+                </a>
+                <a href="https://x.com/shakhawatabrar0" class="link-card gsap-reveal-right" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                    <div>
+                        <h3>X (Twitter)</h3>
+                        <p>@shakhawatabrar0</p>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/shakhawatabrar" class="link-card gsap-reveal-left" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                    <div>
+                        <h3>LinkedIn</h3>
+                        <p>shakhawatabrar</p>
+                    </div>
+                </a>
+                <a href="https://www.pinterest.com/shakhawatabrar0" class="link-card gsap-reveal-right" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-pinterest"></i>
+                    <div>
+                        <h3>Pinterest</h3>
+                        <p>shakhawatabrar0</p>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@shakhawatabrar" class="link-card gsap-reveal-left" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                    <div>
+                        <h3>YouTube</h3>
+                        <p>@shakhawatabrar</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Gallery Section --><section id="gallery" class="gallery-section gsap-reveal-up">
+            <h2 class="gallery-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://i.ibb.co.com/kgX8dznT/IMG-3875.jpg" alt="Gallery Image 1" loading="lazy" /></div>
+                <div class="gallery-item"><img src="https://i.ibb.co.com/YFPWp2rt/IMG-3738.jpg" alt="Gallery Image 2" loading="lazy" /></div>
+                <div class="gallery-item"><img src="https://i.ibb.co.com/7J2VWxft/1743477859177.jpg" alt="Gallery Image 3" loading="lazy" /></div>
+                <div class="gallery-item"><img src="https://i.ibb.co.com/whQNJ0Pd/1753895061076.jpg" alt="Gallery Image 4" loading="lazy" /></div>
+            </div>
+        </section>
+
+        <!-- Goals Section --><section id="goals" class="section-flat">
+            <h2 class="gsap-reveal-left">Future Goals</h2>
+            <p class="gsap-reveal-right">
+                My primary goal is to build a life that is fulfilling... staying true to my values. I aspire to make my family proud by achieving my dreams... I am committed to embracing every challenge and opportunity.
+            </D>
+            <blockquote class="gsap-reveal-up">
+                "Success isn't final, failure isn't fatal; it's the courage to keep going that matters."
+            </blockquote>
+        </section>
+        
+        <!-- Contact Section --><section id="contact" class="contact-section">
+            <h2 class="gsap-reveal-up">Contact Me</h2>
+            <p class="gsap-reveal-up" data-delay="0.1">Reach out through the channel below.</p>
+            <div class="footer-socials">
+                <a href="mailto:shakhawat1858@gmail.com" class="social-icon gsap-reveal-up" data-delay="0.3" target="_blank" rel="noopener noreferrer" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
+        <!-- Footer --><footer>
+            © 2025 Shakahawat Hossen Abrar. All Rights Reserved.
+        </footer>
+
+    </main>
+
+    <!-- --- All JavaScript is now inline --- --><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            const body = document.body;
+            const menuToggle = document.getElementById("menu-toggle");
+            const navLinks = document.querySelectorAll(".nav-link");
+            const themeToggle = document.getElementById("theme-toggle-checkbox");
+            const musicToggle = document.getElementById("music-toggle");
+            const musicIcon = document.getElementById("music-icon");
+            const audio = document.getElementById("bgm");
+            const backToTopBtn = document.getElementById("back-to-top");
+            const jsonContainer = document.getElementById("json-data");
+
+            const toggleMenu = () => {
+                body.classList.toggle("menu-open");
+            };
+            menuToggle.addEventListener("click", toggleMenu);
+
+            const smoothScrollTo = (targetId) => {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.main-header').offsetHeight;
+                    let elementPosition = targetElement.getBoundingClientRect().top;
+                    let offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+                    if (targetId === '#home') {
+                        offsetPosition = 0;
+                    }
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            };
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute("href");
+                    smoothScrollTo(targetId);
+                    toggleMenu();
+                });
+            });
+            
+            document.querySelector('.header-logo').addEventListener('click', (e) => {
+                e.preventDefault();
+                smoothScrollTo('#home');
+            });
+
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                smoothScrollTo('#home');
+            });
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    body.classList.add("dark-mode");
+                    body.classList.remove("light-mode");
+                    themeToggle.checked = false;
+                } else {
+                    body.classList.add("light-mode");
+                    body.classList.remove("dark-mode");
+                    themeToggle.checked = true;
+                }
+            };
+
+            const currentTheme = localStorage.getItem("theme") || 'dark';
+            applyTheme(currentTheme);
+
+            themeToggle.addEventListener("change", () => {
+                let theme = themeToggle.checked ? "light" : "dark";
+                applyTheme(theme);
+                localStorage.setItem("theme", theme);
+            });
+
+            const musicState = localStorage.getItem("music") === "on";
+            if (musicState) {
+                // We won't auto-play, just set icon
+            }
+            musicToggle.addEventListener("click", () => {
+                if (audio.paused) {
+                    audio.play().catch(e => console.log("Audio play failed. User interaction needed."));
+                    musicToggle.classList.add("playing");
+                    musicIcon.classList.replace("fa-music", "fa-pause");
+                    localStorage.setItem("music", "on");
+                } else {
+                    audio.pause();
+                    musicToggle.classList.remove("playing");
+                    musicIcon.classList.replace("fa-pause", "fa-music");
+                    localStorage.setItem("music", "off");
+                }
+            });
+
+            const userData = {
+                "username": "shakhawatabrar",
+                "name": "Shakahawat Hossen Abrar",
+                "nicknames": ["Abrar", "Yean"],
+                "profession": "Student",
+                "location": { "country": "Bangladesh" },
+                "interests": ["Photography", "Hacking", "Cybersecurity", "Exploring new technologies"],
+                "contact": { 
+                    "email": "shakhawat1858@gmail.com",
+                    "linkedin": "shakhawatabrar",
+                    "x_twitter": "shakhawatabrar0",
+                    "facebook": "shakhawat.abrar",
+                    "instagram": "shakhawat.abrar",
+                    "threads": "@shakhawat.abrar",
+                    "pinterest": "shakhawatabrar0",
+                    "youtube": "@shakhawatabrar"
+                }
+            };
+            if (jsonContainer) {
+                jsonContainer.textContent = JSON.stringify(userData, null, 2);
+            }
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            function initAnimations() {
+                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                    setTimeout(initAnimations, 100);
+                    return;
+                }
+
+                gsap.registerPlugin(ScrollTrigger);
+
+                const revealLeft = document.querySelectorAll(".gsap-reveal-left");
+                revealLeft.forEach((elem) => {
+                    gsap.from(elem, {
+                        opacity: 0,
+                        x: -100,
+                        duration: 1,
+                        ease: "power2.out",
+                        scrollTrigger: { trigger: elem, start: "top 85%", toggleActions: "play none none none" }
+                    });
+                });
+
+                const revealRight = document.querySelectorAll(".gsap-reveal-right");
+                revealRight.forEach((elem) => {
+                    gsap.from(elem, {
+                        opacity: 0,
+                        x: 100,
+                        duration: 1,
+                        ease: "power2.out",
+                        scrollTrigger: { trigger: elem, start: "top 85%", toggleActions: "play none none none" }
+                    });
+                });
+
+                const revealUp = document.querySelectorAll(".gsap-reveal-up");
+                revealUp.forEach((elem) => {
+                    gsap.from(elem, {
+                        opacity: 0,
+                        y: 50,
+                        duration: 0.8,
+                        delay: parseFloat(elem.dataset.delay) || 0,
+                        ease: "power2.out",
+                        scrollTrigger: { trigger: elem, start: "top 85%", toggleActions: "play none none none" }
+                    });
+                });
+            }
+            
+            initAnimations();
+        });
+    </script>
+</body>
+</html>
+<!-- code by Shakahawat Hossen Abrar (customized from original) -->
